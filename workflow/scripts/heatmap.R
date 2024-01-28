@@ -37,10 +37,13 @@ width_panel <- width * ncol(dea_lfc) + 3
 annot <- data.frame(group=gsub("group_","",colnames(dea_lfc)))
 rownames(annot) <- colnames(dea_lfc)
 
+clusterCols <- ncol(dea_lfc) > 1
+
 # make heatmap
 lfc_heatmap <- as.ggplot(pheatmap(dea_lfc, 
                show_rownames=F, 
                show_colnames=T,
+               cluster_cols = clusterCols,
                 fontsize = 5,
                 angle_col = 45,
                treeheight_row = 25,
