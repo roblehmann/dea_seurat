@@ -8,7 +8,7 @@ from snakemake.utils import min_version
 
 min_version("6.0.3")
 
-SDIR = os.path.realpath(os.path.dirname(srcdir("Snakefile")))
+# SDIR = os.path.realpath(os.path.dirname(srcdir("Snakefile")))
 shell.prefix(f"set -eo pipefail;")
 
 ##### container image #####
