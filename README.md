@@ -9,7 +9,6 @@ Table of contents
   * [Software](#software)
   * [Steps](#steps)
   * [Configuration](#configuration)
-  * [Examples](#examples)
   * [Authors](#authors)
   * [Links](#links)
 
@@ -48,8 +47,6 @@ The workflow perfroms the following steps.
 # Configuration
 Detailed specifications can be found here [./config/README.md](./config/README.md)
 
-# Examples
-The folder [test_data](https://github.com/roblehmann/dea_seurat/tree/main/test_data) contains two test data sets for naive and memory T-Cells obtained from the following publication: [Single-cell transcriptomics identifies an effectorness gradient shaping the response of CD4+ T cells to cytokines](https://www.nature.com/articles/s41467-020-15543-y). The (Memory/Naive)_Tcells_counts.rds and (Memory/Naive)_Tcells_metadata.csv files contain the count matrix and cell metadata, respectively. Both need to be combined to create a Seurat input object for the pipeline.
 
 # Software
 This project wouldn't be possible without the following software and their dependencies:
