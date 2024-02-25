@@ -13,6 +13,7 @@ rule dea:
     log:
         os.path.join("logs","rules","dea_{analysis}.log"),
     params:
+        resolution = config["resolution"], ##cluster resolution
         partition=config.get("partition"),
         assay = lambda w: annot_dict["{}".format(w.analysis)]["assay"],
         metadata = lambda w: annot_dict["{}".format(w.analysis)]["metadata"],
