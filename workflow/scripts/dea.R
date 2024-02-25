@@ -133,5 +133,20 @@ if (control=="ALL"){
     }
 }
 
+# Clustering plot
+clustering_plot <- DimPlot(data, group.by = 'seurat_clusters', label = TRUE) + NoLegend()
+
+# Add resolution to the plot title
+resolution_value <- snakemake@params[["resolution"]]
+plot_title <- paste("Clustering Plot with", resolution_value, "Resolution")
+clustering_plot <- clustering_plot + ggtitle(plot_title)
+
+# Define the path for the clustering plot output
+clustering_plot_path <- file.path(dirname(dea_result_path), paste0("clustering_plot_", resolution_value, ".pdf"))
+
+# Save the clustering plot
+ggsave(clustering_plot_path, plot = clustering_plot, width = 8, height = 6, units = "in")
+
+
 ### save results
 write.csv(dea_results, file=file.path(dea_result_path), row.names=FALSE)
