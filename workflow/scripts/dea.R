@@ -6,6 +6,7 @@ object_path <- snakemake@input[[1]] #"/nobackup/lab_bock/projects/macroIC/result
 
 # outputs
 dea_result_path <- snakemake@output[["dea_results"]] #"/nobackup/lab_bock/projects/macroIC/results/AKsmall/dea_seurat/KOcall_NonTargeting_condition/DEA_results.csv" 
+updated_object_dir <- dirname(snakemake@output[["updated_seurat_object"]])
 
 # parameters
 resolution <- snakemake@params[["resolution"]] # resolution from the Snakemake file
@@ -148,6 +149,8 @@ clustering_plot_path <- file.path(dirname(dea_result_path), paste0("clustering_p
 # Save the clustering plot
 ggsave(clustering_plot_path, plot = clustering_plot, width = 8, height = 6, units = "in")
 
+### save objetc with new metadata
+saveRDS(data, file = snakemake@output[["updated_seurat_object"]])
 
 ### save results
 write.csv(dea_results, file=file.path(dea_result_path), row.names=FALSE)
