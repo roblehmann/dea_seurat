@@ -4,15 +4,8 @@ rule plots:
     input:
         get_data_path
     output:
-        umap_plot = report(os.path.join(result_path,'{analysis}','plots','UMAP_plot.png'),
-                              caption="../report/plots.rst",
-                              category="{}_umap_seurat".format(config["project_name"]),
-                              subcategory="{analysis}"),
-
-        tsne_plot = report(os.path.join(result_path,'{analysis}','plots','tSNE_plot.png'),
-                              caption="../report/plots.rst",
-                              category="{}_tsne_seurat".format(config["project_name"]),
-                              subcategory="{analysis}"),                     
+        umap_plot = os.path.join(result_path,'{analysis}','UMAP_plot.png'),
+        tsne_plot = os.path.join(result_path,'{analysis}','tSNE_plot.png'),              
                             
     resources:
         mem_mb=config.get("mem", "16000"),
