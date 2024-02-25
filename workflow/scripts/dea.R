@@ -9,6 +9,7 @@ dea_result_path <- snakemake@output[["dea_results"]] #"/nobackup/lab_bock/projec
 
 # parameters
 resolution <- snakemake@params[["resolution"]] # resolution from the Snakemake file
+metadata_column <- snakemake@params[["metadata_column"]] # The metadata column to store cluster IDs
 assay <- snakemake@params[["assay"]] #"SCT" #"RNA"
 metadata <- snakemake@params[["metadata"]] #"condition"
 control <- snakemake@params[["control"]] #"untreated"
