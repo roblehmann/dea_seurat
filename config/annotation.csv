@@ -1,0 +1,3 @@
+name,data,assay,metadata,control
+NaiveTCells,/home/subudhak/data/coursework2024/week4/dea_seurat/test_data/Seurat_Naive_Tcells_counts.rds,RNA,cytokine.condition,ALL
+MemoryTCells,/home/subudhak/data/coursework2024/week4/dea_seurat/test_data/Seurat_Memory_Tcells_counts.rds,RNA,cytokine.condition,ALL
