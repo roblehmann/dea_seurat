@@ -11,6 +11,11 @@ annotation: /path/to/MyData_dea_seurat_annotation.csv
 result_path: /path/to/result/directory/
 project_name: MyData
 
+##### CLUSTERING #####
+# Clustering parameters
+resolution: 0.6
+
+
 ##### DEA #####
 
 # parameters for https://satijalab.org/seurat/reference/findmarkers
