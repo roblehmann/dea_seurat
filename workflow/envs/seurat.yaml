@@ -5,3 +5,4 @@ channels:
 dependencies:
   - r-seurat=4.0.6
   - bioconductor-limma
+  - r-ggplot2

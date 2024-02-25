@@ -35,6 +35,9 @@ rule all:
                            ),
         dea_volcanos = expand(os.path.join(result_path,'{analysis}','plots','DEA_volcanos.png'),
                             analysis = analyses,
+                           ),                           
+        dea_qcplots = expand(os.path.join(result_path,'{analysis}','plots','DEA_qcplot.png'),
+                            analysis = analyses,
                            ),
         dea_all_stats = expand(os.path.join(result_path,'{analysis}','DEA_ALL_stats.csv'),
                                analysis = analyses,
@@ -59,3 +62,4 @@ include: os.path.join("rules", "common.smk")
 include: os.path.join("rules", "dea.smk")
 include: os.path.join("rules", "visualize.smk")
 include: os.path.join("rules", "envs_export.smk")
+include: os.path.join("rules", "qcplots.smk")
