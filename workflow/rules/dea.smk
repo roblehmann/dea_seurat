@@ -6,6 +6,7 @@ rule dea:
     output:
         dea_results = os.path.join(result_path,'{analysis}','DEA_results.csv'),
         clustering_plot= os.path.join(result_path,'{analysis}','clustering_plot_{resolution}.pdf'),
+        updated_seurat_object= os.path.join(result_path,'{analysis}','updated_seurat_object.rds')
     resources:
         mem_mb=config.get("mem", "16000"),
     threads: config.get("threads", 1)
