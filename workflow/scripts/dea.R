@@ -42,6 +42,7 @@ write(all_features, file.path(features_path, "ALL_features.txt"))
 
 ### perform clustering
 data <- FindClusters(data, resolution = resolution)
+data@meta.data$new_clusters <- data@meta.data$seurat_clusters #save cluster info for downstream analysis
 
 ### perform DEA
 
