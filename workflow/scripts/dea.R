@@ -40,6 +40,8 @@ if (!dir.exists(features_path)){
 all_features <- rownames(GetAssayData(object = data, assay = assay, slot = "data"))
 write(all_features, file.path(features_path, "ALL_features.txt"))
 
+### perform clustering
+data <- FindClusters(data, resolution = resolution)
 
 ### perform DEA
 
