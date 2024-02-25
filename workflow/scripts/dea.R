@@ -8,6 +8,7 @@ object_path <- snakemake@input[[1]] #"/nobackup/lab_bock/projects/macroIC/result
 dea_result_path <- snakemake@output[["dea_results"]] #"/nobackup/lab_bock/projects/macroIC/results/AKsmall/dea_seurat/KOcall_NonTargeting_condition/DEA_results.csv" 
 
 # parameters
+resolution <- snakemake@params[["resolution"]] # resolution from the Snakemake file
 assay <- snakemake@params[["assay"]] #"SCT" #"RNA"
 metadata <- snakemake@params[["metadata"]] #"condition"
 control <- snakemake@params[["control"]] #"untreated"
