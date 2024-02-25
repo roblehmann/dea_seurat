@@ -6,8 +6,10 @@ object_path <- snakemake@input[[1]] #"/nobackup/lab_bock/projects/macroIC/result
 
 # outputs
 dea_result_path <- snakemake@output[["dea_results"]] #"/nobackup/lab_bock/projects/macroIC/results/AKsmall/dea_seurat/KOcall_NonTargeting_condition/DEA_results.csv" 
+updated_object_dir <- dirname(snakemake@output[["updated_seurat_object"]])
 
 # parameters
+resolution <- snakemake@params[["resolution"]] # resolution from the Snakemake file
 assay <- snakemake@params[["assay"]] #"SCT" #"RNA"
 metadata <- snakemake@params[["metadata"]] #"condition"
 control <- snakemake@params[["control"]] #"untreated"
@@ -39,6 +41,9 @@ if (!dir.exists(features_path)){
 all_features <- rownames(GetAssayData(object = data, assay = assay, slot = "data"))
 write(all_features, file.path(features_path, "ALL_features.txt"))
 
+### perform clustering
+data <- FindClusters(data, resolution = resolution)
+data@meta.data$new_clusters <- data@meta.data$seurat_clusters #save cluster info for downstream analysis
 
 ### perform DEA
 
@@ -129,6 +134,23 @@ if (control=="ALL"){
         }
     }
 }
+
+# Clustering plot
+clustering_plot <- DimPlot(data, group.by = 'seurat_clusters', label = TRUE) + NoLegend()
+
+# Add resolution to the plot title
+resolution_value <- snakemake@params[["resolution"]]
+plot_title <- paste("Clustering Plot with", resolution_value, "Resolution")
+clustering_plot <- clustering_plot + ggtitle(plot_title)
+
+# Define the path for the clustering plot output
+clustering_plot_path <- file.path(dirname(dea_result_path), paste0("clustering_plot_", resolution_value, ".pdf"))
+
+# Save the clustering plot
+ggsave(clustering_plot_path, plot = clustering_plot, width = 8, height = 6, units = "in")
+
+### save objetc with new metadata
+saveRDS(data, file = snakemake@output[["updated_seurat_object"]])
 
 ### save results
 write.csv(dea_results, file=file.path(dea_result_path), row.names=FALSE)
