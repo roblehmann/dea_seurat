@@ -5,6 +5,7 @@ rule dea:
         get_data_path
     output:
         dea_results = os.path.join(result_path,'{analysis}','DEA_results.csv'),
+        clustering_plot= os.path.join(result_path,'{analysis}','clustering_plot_{resolution}.pdf'),
     resources:
         mem_mb=config.get("mem", "16000"),
     threads: config.get("threads", 1)
