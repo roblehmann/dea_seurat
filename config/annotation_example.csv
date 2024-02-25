@@ -1,2 +1,3 @@
 name,data,assay,metadata,control
-<testRun>,<data_seurat.rds>,<RNA>,<clusterIdColName>,<refCluster>
+MemoryTCellsRun,Memory_Tcells_seurat.rds,RNA,clusterIdColName,ControlClusterName
+NaiveTCellsRun,Naive_Tcells_seurat.rds,RNA,clusterIdColName,ControlClusterName
