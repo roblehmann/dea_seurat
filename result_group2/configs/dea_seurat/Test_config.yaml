@@ -1,5 +1,4 @@
-annotation: /Users/cardonky/Library/CloudStorage/GoogleDrive-kelly.cardonalondono@kaust.edu.sa/My
-  Drive/My_Macbook/PhD-Classes/UnderstandingBioinfoPipelines/dea_seurat_Group2/config/annotation.csv
+annotation: /ibex/scratch/cardonky/dea_seurat_Group2/config/annotation.csv
 filters:
   adj_pval: 0.05
   lfc: 0.1
@@ -9,8 +8,7 @@ mem: '32000'
 min_pct: 0.1
 partition: shortq
 project_name: Test
-result_path: /Users/cardonky/Library/CloudStorage/GoogleDrive-kelly.cardonalondono@kaust.edu.sa/My
-  Drive/My_Macbook/PhD-Classes/UnderstandingBioinfoPipelines/dea_seurat_Group2/result_group2
+result_path: /ibex/scratch/cardonky/dea_seurat_Group2/result_group2
 return_thresh: 1
 score_formula: -log10(dea_results$p_val)*sign(dea_results$avg_log2FC)
 test_use: wilcox
