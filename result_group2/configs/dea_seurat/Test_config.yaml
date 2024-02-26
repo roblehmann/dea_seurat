@@ -1,0 +1,18 @@
+annotation: /ibex/scratch/cardonky/dea_seurat_Group2/config/annotation.csv
+filters:
+  adj_pval: 0.05
+  lfc: 0.1
+  min_pct: 0.1
+logfc_threshold: 0.1
+mem: '32000'
+min_pct: 0.1
+partition: shortq
+project_name: Test
+result_path: /ibex/scratch/cardonky/dea_seurat_Group2/result_group2
+return_thresh: 1
+score_formula: -log10(dea_results$p_val)*sign(dea_results$avg_log2FC)
+test_use: wilcox
+threads: 2
+volcano:
+  FCcutoff: 0.1
+  pCutoff: 0.05
