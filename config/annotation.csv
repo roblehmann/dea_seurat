@@ -1,0 +1,2 @@
+name,data,assay,metadata,control
+memory_tcells,/Users/cardonky/dea_seurat_Group2/test_data/Memory_Tcells_counts.rds,SCT,cytokine.condition,ALL

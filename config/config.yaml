@@ -7,9 +7,9 @@ threads: 2
 partition: 'shortq'
 
 ##### GENERAL #####
-annotation: /path/to/MyData_dea_seurat_annotation.csv
-result_path: /path/to/result/directory/
-project_name: MyData
+annotation: /Users/cardonky/dea_seurat_Group2/config/annotation.csv
+result_path: /Users/cardonky/dea_seurat_Group2/result_group2
+project_name: Test
 
 ##### DEA #####
 
