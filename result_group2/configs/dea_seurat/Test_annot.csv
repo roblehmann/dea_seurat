@@ -1,3 +1,4 @@
 name,data,assay,metadata,control
+memory_tcells,/ibex/scratch/cardonky/dea_seurat_Group2/test_data/mem_se.rds,RNA,cytokine.condition,ALL
 naive_tcells,/ibex/scratch/cardonky/dea_seurat_Group2/test_data/naive_se.rds,RNA,cytokine.condition,ALL
 

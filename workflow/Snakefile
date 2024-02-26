@@ -42,6 +42,9 @@ rule all:
         dea_lfc_heatmap = expand(os.path.join(result_path,'{analysis}','plots','DEA_LFC_heatmap.png'),
                                analysis = analyses,
                               ),
+	barplot = expand(os.path.join(result_path,'{analysis}','plots','barplot.png'),
+                               analysis = analyses,
+                              ),
         envs = expand(os.path.join(config["result_path"],'envs','dea_seurat','{env}.yaml'),env=['seurat','volcanos','ggplot','heatmap']),
         configs = os.path.join(config["result_path"],'configs','dea_seurat','{}_config.yaml'.format(config["project_name"])),
         annotations = os.path.join(config["result_path"],'configs','dea_seurat','{}_annot.csv'.format(config["project_name"])),
@@ -59,3 +62,4 @@ include: os.path.join("rules", "common.smk")
 include: os.path.join("rules", "dea.smk")
 include: os.path.join("rules", "visualize.smk")
 include: os.path.join("rules", "envs_export.smk")
+include: os.path.join("rules", "barplot.smk")

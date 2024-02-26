@@ -48,3 +48,4 @@ rule lfc_heatmap:
         control = lambda w: annot_dict["{}".format(w.analysis)]["control"],
     script:
         "../scripts/heatmap.R"
+
