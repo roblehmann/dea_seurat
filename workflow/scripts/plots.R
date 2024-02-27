@@ -38,6 +38,8 @@ variable_features <- VariableFeatures(seurat_object)
 
 seurat_object <- RunPCA(seurat_object, features = variable_features)
 
+seurat_object <- FindNeighbors(seurat_object, dims = 1:30, reduction="pca_reduction")
+seurat_object <- FindClusters(seurat_object, resolution = 1, cluster.name="RNA_clusters_1")
 
 # Run UMAP
 your_seurat_object <- RunUMAP(seurat_object, dims = 1:10)
