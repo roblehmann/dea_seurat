@@ -28,6 +28,7 @@ annot_dict = annot.to_dict('index')
 
 result_path = os.path.join(config["result_path"],'dea_seurat')
 
+
 rule all:
     input:
         dea_results = expand(os.path.join(result_path,'{analysis}','DEA_results.csv'),
@@ -42,6 +43,12 @@ rule all:
         dea_lfc_heatmap = expand(os.path.join(result_path,'{analysis}','plots','DEA_LFC_heatmap.png'),
                                analysis = analyses,
                               ),
+        umap_plot = expand(os.path.join(result_path,'{analysis}','plots','UMAP_plot.png'),
+                         analysis = analyses,
+                         ),
+        tsne_plot = expand(os.path.join(result_path,'{analysis}','plots','tSNE_plot.png'),
+                             analysis = analyses,
+                             ),
         envs = expand(os.path.join(config["result_path"],'envs','dea_seurat','{env}.yaml'),env=['seurat','volcanos','ggplot','heatmap']),
         configs = os.path.join(config["result_path"],'configs','dea_seurat','{}_config.yaml'.format(config["project_name"])),
         annotations = os.path.join(config["result_path"],'configs','dea_seurat','{}_annot.csv'.format(config["project_name"])),
@@ -59,3 +66,4 @@ include: os.path.join("rules", "common.smk")
 include: os.path.join("rules", "dea.smk")
 include: os.path.join("rules", "visualize.smk")
 include: os.path.join("rules", "envs_export.smk")
+include: os.path.join("rules", "plots.smk")
